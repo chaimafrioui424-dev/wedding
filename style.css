@@ -1,0 +1,545 @@
+/* Style Général */
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    background-color: #f7f5f0;
+    color: #4a4a4a;
+    text-align: center;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* --- THEME LIL W NAHAR (VARIABLES CSS) --- */
+/* Par défaut: Light Mode (Nahar) */
+/* --- LA WAJIHA TA3 LA PHOTO COMPLET (FONDS COMPLET) --- */
+/* --- LA WAJIHA TA3 EL QASR KAMEL YBAN (FULL VIEW) --- */
+.details-hero {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* ندو لون بوردو غامق كخلفية للفراغات باش يندمج مع الصورة */
+    background-color: #2b0408; 
+}
+
+/* La div main-content fiha la photo direct k-khalfia */
+/* --- الخلفية تدي الشاشة كامل مكمول بلا فراغات وبلا قص --- */
+.main-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('couple.jpg');
+    
+    /* 🌟 هادي هي لافار: تجبد الصورة كامل على الشاشة التليفون تعمرها */
+    background-size: 100% 100%; 
+    
+    background-repeat: no-repeat;
+    background-position: center center;
+    z-index: 1;
+    transition: filter 0.6s ease-in-out;
+}
+
+/* طبقة الحماية الداكنة باش تبان الكتيبـة فوق القصر */
+.main-content::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(43, 4, 8, 0.3), rgba(15, 12, 27, 0.5));
+    z-index: 2; 
+}
+
+/* --- 🌟 LOGIQUE TA3 EL-LIL (DARK THEME) FOR BACKGROUND 🌟 */
+body.dark-theme .main-content {
+    filter: brightness(0.5) contrast(1.1);
+}
+
+/* El klam yji l-fouq le milieu exact ta3 el-qasr */
+.wedding-overlay-text {
+    position: absolute;
+    top: 35%; /* تقدري تعدليها يوجع الفوق ولا لتحت باش ما يغطيش القصر */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3; 
+    width: 100%;
+    text-shadow: 2px 4px 15px rgba(0, 0, 0, 0.9); 
+}
+
+/* --- ستايل الكتيبة المزخرفة والذهبية الكبيرة --- */
+
+/* --- ستايل الكتيبة باللون الأبيض الصافي والحجم الكبير جداً --- */
+
+.subtitle {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: 3.3rem; /* كبرناها بزاااف */
+    font-weight: 800;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin: 0;
+    
+    /* 🌟 لون أبيض ناصع وصافي */
+    color: #ffffff;
+    
+    /* ظل أسود قوي وواضح وراها باش تبرز 100% فوق أي خلفية */
+    filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.95));
+}
+
+.subtitle-cursive {
+    /* خط الكاليغرافي المزخرف تع الأعراس */
+    font-family: 'Great Vibes', 'Alex Brush', 'Edwardian Script ITC', cursive;
+    font-size: 4.5rem; /* حجم ضخم ومزخرف هبال تعمر الواجهة */
+    margin: 15px 0;
+    font-style: italic;
+    font-weight: 500;
+    
+    /* 🌟 لون أبيض ثلجي صافي يبرق */
+    color: #ffffff;
+    
+    /* ظل ثلاثي الأبعاد تحت الحروف الملوية باش تبان عميقة وفخمة */
+    filter: drop-shadow(0px 5px 12px rgba(0, 0, 0, 0.95));
+    line-height: 1.1;
+    display: block;
+}
+.couple-names {
+    font-size: 3.6rem;
+    letter-spacing: 3px;
+    color: #e5c158; 
+    margin: 10px 0 0 0;
+    font-weight: bold;
+}
+
+/* --- 🌟 HNA EL 3AFSA TA3 LIL (DARK THEME) 🌟 */
+/* Ki n-activiw el-gmar, la photo couple.png d-gniet w t-welli fiha vibe ta3 el-lil */
+body.dark-theme .wedding-img {
+    filter: brightness(0.4) contrast(1.1) saturate(1.2); 
+}
+
+/* L'effet ta3 l'obscurité progressif pour le texte */
+.main-content::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    /* Gradient violet/dark khfif bach l'ktiba tban dika */
+    background: linear-gradient(to bottom, rgba(15, 12, 27, 0.3), rgba(15, 12, 27, 0.5));
+    z-index: 2; 
+    transition: background 0.6s ease-in-out;
+}
+
+/* Ki n-commutiw l el-lil, n-زيدو n-gammqu el gradient violet blend */
+body.dark-theme .main-content::after {
+    background: linear-gradient(to bottom, rgba(31, 10, 36, 0.5), rgba(15, 12, 27, 0.7));
+}
+
+/* El klam jdid li yji fixed l-fouq la photo */
+.wedding-overlay-text {
+    position: absolute;
+    top: 30%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3; 
+    width: 100%;
+    text-shadow: 2px 4px 12px rgba(0, 0, 0, 0.9); 
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin: 0;
+}
+
+.subtitle-cursive {
+    font-family: 'Georgia', serif;
+    font-size: 2rem;
+    color: #f1e7cb;
+    font-style: italic;
+    margin: 5px 0;
+}
+
+.couple-names {
+    font-size: 2.6rem;
+    letter-spacing: 3px;
+    color: #e5c158; 
+    margin: 10px 0 0 0;
+    font-weight: bold;
+}
+
+/* Bouton Switch Lil/Nahar */
+/* Container ta3 le switch */
+.mode-toggle {
+    position: absolute;
+    top: 35px;
+    left: 25px;
+    z-index: 10;
+}
+
+/* La structure ta3 le switch textless */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 32px;
+}
+
+/* Cache l'input par défaut */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Le slider (Arrière plan ta3 le bouton transparent kima la capture) */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    transition: .4s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6px;
+    box-sizing: border-box;
+}
+
+/* El douwaira li d-bougi ldakhel */
+.slider::before {
+    position: absolute;
+    content: "";
+    height: 24px;
+    width: 24px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 2;
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round::before {
+    border-radius: 50%;
+}
+
+/* Les icônes ta3 lil w nahar l-dakhel */
+.icon-sun, .icon-moon {
+    font-size: 0.85rem;
+    user-select: none;
+    z-index: 1;
+}
+
+/* Ki n-clikiw (Dark Mode / Actif) */
+input:checked + .slider {
+    background-color: rgba(43, 14, 46, 0.4); /* Yweli violet transparent dark */
+}
+
+input:checked + .slider::before {
+    transform: translateX(28px); /* El douwaira t-glissi l l-ymna */
+}
+#modeBtn:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Le texte li f le milieu kima l'photo exact */
+.main-content {
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    padding: 0 20px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin: 0;
+    font-weight: 300;
+}
+
+.subtitle-cursive {
+    font-family: 'Bickham Script', 'Great Vibes', 'Georgia', cursive;
+    font-size: 2.2rem;
+    margin: 5px 0;
+    font-style: italic;
+}
+
+.couple-names {
+    font-size: 2.8rem;
+    letter-spacing: 4px;
+    margin: 15px 0 0 0;
+    font-weight: bold;
+    color: #f1e7cb; /* Couleur dorée chic */
+}
+
+/* Bouton de son rond l-taht à droite (Kima l'photo) */
+/* Le nouveau bouton de son (Style Instagram Premium) */
+.music-instagram-btn {
+    position: absolute;
+    bottom: 45px;
+    right: 35px;
+    width: 50px;
+    height: 50px;
+    /* Couleur violette/prune foncée kima f la capture exact avec transparence */
+    background-color: rgba(43, 14, 46, 0.75); 
+    backdrop-filter: blur(8px);
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px; /* El distance mbein les barres */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.music-instagram-btn:hover {
+    transform: scale(1.08);
+    background-color: rgba(43, 14, 46, 0.9);
+}
+
+/* Les petites barres ta3 le son dakhel le cercle */
+.music-instagram-btn .bar {
+    display: inline-block;
+    width: 3px;
+    height: 15px;
+    background-color: #ffffff; /* Barres blanches kima la photo */
+    border-radius: 2px;
+    transition: transform 0.3s ease, height 0.3s ease;
+}
+
+/* Ki tkoun l-mousika temchi ndirou animation (On va l'activer b JS) */
+.music-instagram-btn.playing .bar1 { animation: bounce 0.6s infinite alternate; }
+.music-instagram-btn.playing .bar2 { animation: bounce 0.8s infinite alternate 0.2s; }
+.music-instagram-btn.playing .bar3 { animation: bounce 0.5s infinite alternate 0.1s; }
+.music-instagram-btn.playing .bar4 { animation: bounce 0.7s infinite alternate 0.3s; }
+
+/* Animation bounce ta3 les barres */
+@keyframes bounce {
+    0% { height: 6px; }
+    100% { height: 22px; }
+}
+
+/* Ki thbess l-mousika, les barres y-regliwhom rqaq w mhabsin */
+.music-instagram-btn.paused .bar {
+    height: 4px !important;
+}
+
+/* --- ENVELOPPE BLANCHE DENTELLE (Kima khdemnaha sbe9) --- */
+
+
+/* Container ta3 la Chacha complet screen */
+/* Container ta3 la Chacha complet screen */
+/* --- الشاشة الافتتاحية: بوردو غامق ملكي وصافي --- */
+/* --- CHACHA L'OUVERTURE: ENVELOPPE BORDEAUX GHAMEQ (Kima la capture) --- */
+.screen-splitter {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: 9999; cursor: pointer; overflow: hidden;
+    background-color: #1a0205; /* Fond dark bordeaux */
+}
+
+/* Koul jiha men l'enveloppe fiha texture qatifa khfifa */
+.corner {
+    position: absolute;
+    background-color: #2b050a; /* Bordeaux غامق ملكي */
+    
+    /* تأثير الملمس الخشن (Texture) تع الغلاف كيمـا الصورة exact */
+    background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 0),
+                      linear-gradient(rgba(30, 2, 5, 0.4), rgba(15, 1, 3, 0.6));
+    background-size: 4px 4px, 100% 100%;
+    
+    transition: transform 1.3s cubic-bezier(0.6, -0.28, 0.735, 0.045); /* حركة فتح غلاف حقيقية */
+    box-sizing: border-box;
+}
+
+/* 1. الفم الفوقاني تع l'enveloppe (Le rabat supérieur) */
+.top-left { 
+    top: 0; left: 0; 
+    width: 100vw; height: 55vh; /* يهبط شوية تحت النص كيمـا الجواب */
+    clip-path: polygon(0 0, 100% 0, 50% 100%); 
+    background-color: #31060b; /* درجة أفتح khfif باش يبان الظل تع الفتحة */
+    z-index: 3; /* يجي هو الفوقاني كامل */
+    box-shadow: inset 0 -5px 15px rgba(0,0,0,0.4);
+}
+
+/* 2. الجيـهة التحتانية تع l'enveloppe (Le rabat inférieur) */
+.bottom-right { 
+    bottom: 0; left: 0; 
+    width: 100vw; height: 60vh;
+    clip-path: polygon(0 100%, 100% 100%, 50% 0); 
+    background-color: #230306; /* أغمق شوية */
+    z-index: 2;
+}
+
+/* 3. الجيـهة اليسرى (Rabat Gauche) */
+.bottom-left { 
+    top: 0; left: 0; 
+    width: 55vw; height: 100vh;
+    clip-path: polygon(0 0, 100% 50%, 0 100%); 
+    background-color: #1f0205; 
+    z-index: 1;
+}
+
+/* 4. الجيـهة اليمنى (Rabat Droit) */
+.top-right { 
+    top: 0; right: 0; 
+    width: 55vw; height: 100vh;
+    clip-path: polygon(100% 0, 0 50%, 100% 100%); 
+    background-color: #280408; 
+    z-index: 1;
+}
+
+/* --- ANIMATION TA3 L'OUVERTURE: l'enveloppe yetftah l-fouq w l-taht --- */
+.screen-splitter.opened .top-left { 
+    transform: translateY(-110vh) scaleY(0.8); /* يطلع لـ فوق وينقلب */
+}
+.screen-splitter.opened .bottom-right { 
+    transform: translateY(110vh); /* يهبط لـ تحت */
+}
+.screen-splitter.opened .bottom-left { 
+    transform: translateX(-110vw); /* يروح لليسار */
+}
+.screen-splitter.opened .top-right { 
+    transform: translateX(110vw); /* يروح لليمين */
+}
+
+/* الكلمة لي تجي مكتوبة فوق الغلاف (مثلاً: إضغط للفتح) */
+.screen-text {
+    position: absolute;
+    top: 48%; left: 50%; transform: translate(-50%, -50%);
+    z-index: 10000; text-align: center; 
+    color: #f1e7cb;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+.screen-text h2 { font-size: 2.2rem; font-family: 'Georgia', serif; font-style: italic; margin-bottom: 5px; }
+.screen-splitter.opened .screen-text { opacity: 0; }
+/* --- الحركات المضافة للبريق واللمعان --- */
+@keyframes shineGlitter {
+    0% { background-position: 0px 0px, 0px 0px, 0px 0px; }
+    100% { background-position: 30px 60px, 40px 80px, 60px 120px; }
+}
+
+@keyframes lightSweep {
+    0% { transform: translate(-30%, -30%) rotate(-45deg); }
+    50% { transform: translate(30%, 30%) rotate(-45deg); }
+    100% { transform: translate(-30%, -30%) rotate(-45deg); }
+}
+/* الكود تع الكتيبة لي في وسط المثلثات البوردو */
+.screen-text {
+    position: absolute;
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    z-index: 10000; text-align: center; 
+    color: #f1e7cb; /* كتيبة ذهبية تخرج هبال مع البوردو */
+    transition: opacity 0.4s ease; width: 100%; pointer-events: none;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+.screen-text h2 { font-size: 2.3rem; margin-bottom: 5px; font-family: 'Georgia', serif; font-style: italic;}
+.screen-text p { font-size: 1rem; opacity: 0.9; letter-spacing: 1px;}
+
+/* الأنميشن تع الفتح */
+.screen-splitter.opened .top-left { transform: translateY(-100vh); }
+.screen-splitter.opened .top-right { transform: translateX(100vw); }
+.screen-splitter.opened .bottom-right { transform: translateY(100vh); }
+.screen-splitter.opened .bottom-left { transform: translateX(-100vw); }
+.screen-splitter.opened .screen-text { opacity: 0; }
+
+/* --- الحركات المضافة للبريق واللمعان --- */
+@keyframes shineGlitter {
+    0% { background-position: 0px 0px, 0px 0px, 0px 0px; }
+    100% { background-position: 30px 60px, 40px 80px, 60px 120px; }
+}
+
+@keyframes lightSweep {
+    0% { transform: translate(-30%, -30%) rotate(-45deg); }
+    50% { transform: translate(30%, 30%) rotate(-45deg); }
+    100% { transform: translate(-30%, -30%) rotate(-45deg); }
+}
+
+/* El klam li f le milieu qbel ma tatftah */
+.screen-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    text-align: center;
+    font-family: 'Georgia', serif;
+    color: #b5942e;
+    transition: opacity 0.4s ease;
+    width: 100%;
+    pointer-events: none; /* Bach ma y-bloquich l-clic */
+}
+
+.screen-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+/* --- ANIMATION TA3 LA QESMA TA3 LES TRIANGLES --- */
+.screen-splitter.opened .top-left {
+    transform: translateY(-100vh); /* Triangle l-fouq ytla3 l-fouq khlah */
+}
+.screen-splitter.opened .top-right {
+    transform: translateX(100vw);  /* Triangle l-ymna yrouh l l-ymna */
+}
+.screen-splitter.opened .bottom-right {
+    transform: translateY(100vh); /* Triangle l-taht yhbat l l-taht */
+}
+.screen-splitter.opened .bottom-left {
+    transform: translateX(-100vw); /* Triangle l-issra yrouh l l-issra */
+}
+
+/* N-khfiw el klam direct */
+.screen-splitter.opened .screen-text {
+    opacity: 0;
+}
+
+.letter h1 { font-size: 1.5rem; color: #b5942e; font-style: italic; margin: 5px 0;}
+.click-text { color: #d4af37; font-weight: bold; animation: blink 1.5s infinite; font-size: 0.8rem; margin-top: 15px;}
+
+.envelope.open .flap { transform: rotateX(180deg); z-index: 0; }
+.envelope.open .letter { transform: translateY(-110px); z-index: 2; }
+
+/* Sections cachées / affichées */
+.section-hidden {
+    display: none;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.section-visible {
+    display: flex;
+    opacity: 1;
+}
+
+/* Galerie Photos simple */
+.gallery {
+    flex-direction: column;
+    padding: 60px 20px;
+    background-color: #ffffff;
+}
+.photo-grid {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+.photo-grid img {
+    width: 250px; height: 350px; object-fit: cover; border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+@keyframes blink { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }

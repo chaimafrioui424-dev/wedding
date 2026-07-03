@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation</title>
+    <!-- 🌟 زيدي هاذ الزوز سطور باش يخدم الخط المزخرف تع الأعراس قبالة -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <audio id="weddingMusic" loop>
+        <source src="ghnaya.mp3.mp4" type="audio/mpeg">
+    </audio>
+
+    <div class="screen-splitter" id="welcomeScreen" onclick="ouvrirInvitation()">
+        <div class="corner top-left"></div>
+        <div class="corner top-right"></div>
+        <div class="corner bottom-left"></div>
+        <div class="corner bottom-right"></div>
+        
+        
+    </div>
+
+    <section id="details" class="details-hero section-hidden">
+        
+        <div class="mode-toggle">
+            <label class="switch">
+                <input type="checkbox" id="themeCheckbox" onclick="toggleTheme()">
+                <span class="slider round">
+                    <span class="icon-sun">☀️</span>
+                    <span class="icon-moon">🌙</span>
+                </span>
+            </label>
+        </div>
+
+        <div class="main-content">
+    <!-- El klam yji hna direct, la photo rna raddnah background f le CSS -->
+    <div class="wedding-overlay-text">
+        <p class="subtitle">Are you ready</p>
+        <p class="subtitle-cursive">for an unforgettable night</p>
+    </div>
+</div>
+
+        <button id="musicToggle" class="music-instagram-btn" onclick="togglePlayPause()">
+            <span class="bar bar1"></span>
+            <span class="bar bar2"></span>
+            <span class="bar bar3"></span>
+            <span class="bar bar4"></span>
+        </button>
+        
+    </section>
+
+    <section id="gallery" class="gallery section-hidden">
+        <h2>Our Moments</h2>
+        <div class="photo-grid">
+            <img src="photo1.jpg" alt="Photo 1">
+            <img src="photo2.jpg" alt="Photo 2">
+            <img src="photo3.jpg" alt="Photo 3">
+        </div>
+    </section>
+
+    <script>
+        // Verifiy beli le nom ta3 la fonction exact hna kima f onclick l-fouq
+        function ouvrirInvitation() {
+            var screen = document.getElementById('welcomeScreen');
+            var music = document.getElementById('weddingMusic');
+            var toggleBtn = document.getElementById('musicToggle');
+            
+            // 1. N-animiw la chacha bch tatqasem
+            if (screen) {
+                screen.classList.add('opened');
+                // N-nhouha mel l'affichage bch ma t-bloquich le scroll
+                setTimeout(function() {
+                    screen.style.display = 'none';
+                }, 1200);
+            }
+
+            // 2. N-lanciou la musique direct
+            if (music) {
+                music.play().then(function() {
+                    if (toggleBtn) toggleBtn.classList.add('playing');
+                }).catch(function(error) {
+                    console.log("Autoplay bloqué par le navigateur:", error);
+                    // N-activiw les barres mme si n-bloqua l'autoplay bch ki y-clikiw direct t-lanci
+                    if (toggleBtn) toggleBtn.classList.add('playing');
+                });
+            }
+
+            // 3. N-biyen la wajiha ta3 la photo
+            var detailsSection = document.getElementById('details');
+            var gallerySection = document.getElementById('gallery');
+
+            if (detailsSection) detailsSection.classList.add('section-visible');
+            if (gallerySection) gallerySection.classList.add('section-visible');
+        }
+
+        // Logique Lil / Nahar
+        function toggleTheme() {
+            var body = document.body;
+            var checkbox = document.getElementById('themeCheckbox');
+            
+            if (checkbox && checkbox.checked) {
+                body.classList.add('dark-theme');
+            } else {
+                body.classList.remove('dark-theme');
+            }
+        }
+
+        // Logique Play / Pause son
+        function togglePlayPause() {
+            var music = document.getElementById('weddingMusic');
+            var toggleBtn = document.getElementById('musicToggle');
+
+            if (music) {
+                if (music.paused) {
+                    music.play();
+                    if (toggleBtn) {
+                        toggleBtn.classList.remove('paused');
+                        toggleBtn.classList.add('playing');
+                    }
+                } else {
+                    music.pause();
+                    if (toggleBtn) {
+                        toggleBtn.classList.remove('playing');
+                        toggleBtn.classList.add('paused');
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
